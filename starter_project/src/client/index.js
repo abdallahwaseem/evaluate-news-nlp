@@ -1,9 +1,8 @@
 // js files
-import { handleSubmit } from './js/formHandler'
+import { handleSubmit } from "./js/formHandler";
+import { checkForName } from "./js/nameChecker";
 
-
-
-// alert("I EXIST")
-// console.log("CHANGE!!");
+alert("I EXIST ya abdallah");
+console.log(checkForName);
 
 // sass files
