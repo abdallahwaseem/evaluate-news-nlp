@@ -4,6 +4,7 @@
     <head>
         <meta charset="utf-8">
         <title>Test</title>
+
     </head>
 
     <body>
@@ -14,9 +15,9 @@
 
         <main>
             <section>
-                <form id="urlForm">
-                    <input id="name" type="text" name="url" placeholder="Enter a sentence" required>
-                    <button id="submitButton" type="submit">Submit</button>
+                <form id="urlForm" onsubmit="Client.handleSubmit(event)">
+                    <input id="name" type="text" name="url" placeholder="Enter a url" required>
+                    <button id="submitButton" type="submit" onclick="return Client.handleSubmit(event)">Submit</button>
                 </form>
 
             </section>
@@ -29,6 +30,22 @@
         <footer>
             <p>2024 Sentiment analysis. All copies resereved.</p>
         </footer>
+        <script>
+            // Check that service workers are supported
+            if ('serviceWorker' in navigator) {
+                // Use the window load event to keep the page load performant
+                window.addEventListener('load', async () => {
+                    // Try to register the service worker.
+                    try {
+                        await navigator.serviceWorker.register('/service-worker.js');
+                        console.log('Service worker registered! 😎', reg);
+                    } catch (err) {
+                        console.log('😥 Service worker registration failed: ', err);
+                    }
+
+                });
+            }
+        </script>
 
     </body>
 
